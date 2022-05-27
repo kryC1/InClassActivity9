@@ -1,18 +1,18 @@
 $(document).ready(function() {
-    $("a").click(function () {
-        var title = $(this).attr("title");        
-        getJSON("json_files/" + title + ".json"); 
-    });
+	$("a").on("click", function() {
+		var myTitle = $(this).attr("title");        
+        	getJSON("json_files/" + myTitle + ".json");
+	});
 }); // end ready
 
 function getJSON(myURL) {
     $.ajax({ url: myURL, dataType: "text", success: function (data) {
-            var json = $.parseJSON(data);
+            var myData = $.parseJSON(data);
 		
-	    $("main > h1").html(json.speakers[0].title);	
-            $("main > h2").html(json.speakers[0].month + "<br/>" + json.speakers[0].speaker);
-            $("main > p").html(json.speakers[0].text);
-            $("main > img").attr("src", json.speakers[0].image);
+	    $("main > h1").html(myData.speakers[0].title);	
+            $("main > h2").html(myData.speakers[0].month + "<br/>" + myData.speakers[0].speaker);
+            $("main > p").html(myData.speakers[0].text);
+            $("main > img").attr("src", myData.speakers[0].image);
         }
     });
 }
