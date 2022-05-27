@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	$("a").on("click", function() {
 		var myTitle = $(this).attr("title");        
-        	getJSON("json_files/" + myTitle + ".json");
+        	myJSON("json_files/" + myTitle + ".json");
 	});
 }); // end ready
 
-function getJSON(myURL) {
+function myJSON(myURL) {
     $.ajax({ url: myURL, dataType: "text", success: function (data) {
             var myData = $.parseJSON(data);
 		
